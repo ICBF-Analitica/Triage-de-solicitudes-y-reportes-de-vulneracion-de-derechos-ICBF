@@ -34,7 +34,7 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 * Diseñar un prototipo de artefacto que permita a los equipos del ICBF consultar los niveles de prioridad (pronosticados por el modelo) en la verificación y constatación en campo de las denuncias que reciben.
 
-# Contenido 
+## Contenido 
 
 En esta parte se especifica la estructura de carpetas del repositorio y una descripción breve de cada una a manera de índice.
 
