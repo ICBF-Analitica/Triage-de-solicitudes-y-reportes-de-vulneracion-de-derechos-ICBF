@@ -16,8 +16,6 @@ Realizar procesamiento de lenguaje natural (NLP) sobre los textos e interaccione
 
 ## Descripción
 
-![LogoGrupoAnalitica](img/GAI.png)
-
 Anualmente el *Instituto Colombiano de Bienestar Familiar* **(ICBF)** recibe alrededor de **120 mil** denuncias asociadas a vulneraciones de derechos de niños, niñas y adolescentes, debido a esto usa gran parte de sus recursos en la verificación y constatación en campo de las mismas. Sin embargo, algunas de estas requieren ser priorizadas para minimizar el riesgo individual y familiar. 
 
 Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendió este proyecto para diseñar mecanismos que permitan automatizar la clasificación de riesgo de las denuncias y comprender el contexto en el que ocurren, a través del análisis sistemático de las descripciones de las denuncias mediante las técnicas de procesamiento de lenguaje natural. Este proyecto permitirá que el ICBF pueda pilotear mecanismos más eficientes de distribución de los recursos para la verificación en campo y constatación de las denuncias de vulneración de los niños, niñas y adolescentes del país.
