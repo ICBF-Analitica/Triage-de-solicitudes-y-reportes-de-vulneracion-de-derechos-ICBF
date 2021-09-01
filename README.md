@@ -13,7 +13,7 @@ Realizar procesamiento de lenguaje natural (NLP) sobre los textos e interaccione
 
 
 
-
+![LogoICBF](img/logo_Icbf.png)
 ## Descripción
 
 Anualmente el *Instituto Colombiano de Bienestar Familiar* **(ICBF)** recibe alrededor de **120 mil** denuncias asociadas a vulneraciones de derechos de niños, niñas y adolescentes, debido a esto usa gran parte de sus recursos en la verificación y constatación en campo de las mismas. Sin embargo, algunas de estas requieren ser priorizadas para minimizar el riesgo individual y familiar. 
