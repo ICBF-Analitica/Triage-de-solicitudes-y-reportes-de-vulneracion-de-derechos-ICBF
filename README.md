@@ -1,4 +1,4 @@
-![LogoICBF](img/Cabezote Modelo denuncias.jpg)
+![Cabezote Modelo denuncias](img/Cabezote Modelo denuncias.jpg)
 
 
 
