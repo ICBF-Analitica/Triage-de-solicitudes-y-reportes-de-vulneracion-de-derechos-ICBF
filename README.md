@@ -1,4 +1,4 @@
-![Cabezote Modelo denuncias](img/Cabezote Modelo denuncias.jpg)
+![Cabezote_Modelo_denuncias](img/Cabezote Modelo denuncias.png)
 
 
 
