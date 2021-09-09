@@ -1,4 +1,4 @@
-![Cabezote](img/Cabezote.png)
+![Cabezote](Imágenes/Cabezote.png)
 
 
 
