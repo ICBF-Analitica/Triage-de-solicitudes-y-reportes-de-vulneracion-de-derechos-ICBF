@@ -5,13 +5,6 @@
 # Denuncias
 Realizar procesamiento de lenguaje natural (NLP) sobre los textos e interacciones en chat de denuncias de vulneración de derechos de niños, niñas y adolescentes realizadas a través de los canales del ICBF, con el propósito de diseñar artefactos de priorización de verificaciones en campo u otras herramientas similares como artefactos de reacción inmediata, chatbots, etc.
 
-## Tabla de contenidos
-
-* [Descripción](#Descripción)
-* [Objetivos](#Objetivo-general)
-* [Contenido](#Contenido)
-
-
 ## Descripción
 
 Anualmente el *Instituto Colombiano de Bienestar Familiar* **(ICBF)** recibe alrededor de **120 mil** denuncias asociadas a vulneraciones de derechos de niños, niñas y adolescentes, debido a esto usa gran parte de sus recursos en la verificación y constatación en campo de las mismas. Sin embargo, algunas de estas requieren ser priorizadas para minimizar el riesgo individual y familiar. 
@@ -29,6 +22,13 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 * Identificar variables y factores que permitan realizar predicción y etiquetado de las denuncias de acuerdo con su posible veracidad y gravedad.
 
 * Diseñar un prototipo de artefacto que permita a los equipos del ICBF consultar los niveles de prioridad (pronosticados por el modelo) en la verificación y constatación en campo de las denuncias que reciben.
+
+
+## Tabla de contenidos
+
+* [Descripción](#Descripción)
+* [Objetivos](#Objetivo-general)
+* [Contenido](#Contenido)
 
 ## Contenido 
 
