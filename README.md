@@ -28,14 +28,15 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 * [Descripción](#Descripción)
 * [Objetivos](#Objetivo-general)
-* [Contenido](#Contenido)
+* [Tecnologías involucradas](#Tecnologíasinvolucradas)
+* [Piloto DataSandbox](#Piloto_DataSandbox)
 
-## Contenido 
+## Tecnologías involucradas
 
-En esta parte se especifica la estructura de carpetas del repositorio y una descripción breve de cada una a manera de índice.
+## Piloto DataSandbox
 
-1. App                   carpeta para el Código del proyecto
-2. Datos de Ejemplo      Carpeta donde se alojan ejemplos de los datos, tanto lo iniciales (fuentes de Datos), como los finales o los obtenidos (procesados)
-3. Documentación         Carpeta que contiene toda la documentación del Proyecto.
-4. Codigos usados 
-4.1 python
+
+## Datasets
+
+## Diccionarios
+
