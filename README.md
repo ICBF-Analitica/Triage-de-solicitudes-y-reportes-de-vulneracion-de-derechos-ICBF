@@ -29,14 +29,20 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 * [Descripción](#Descripción)
 * [Objetivos](#Objetivo-general)
 * [Tecnologías involucradas](#Tecnologíasinvolucradas)
-* [Piloto DataSandbox](#Piloto_DataSandbox)
+* [Datos](#Datos)
+* [Algoritmos y Entrenamiento](#AlgoritmosyEntrenamiento)
+* [Datos](#Datos)
+
 
 ## Tecnologías involucradas
 
-## Piloto DataSandbox
+
+## Datos 
+
+## Algoritmos y Entrenamiento
 
 
-## Datasets
+## Artefacto o Visualización
 
 ## Diccionarios
 
