@@ -35,7 +35,7 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 
 ## Tecnologías involucradas
-
+![Cabezote](Imágenes/DiagramadeArq.png)
 
 ## Datos 
 
