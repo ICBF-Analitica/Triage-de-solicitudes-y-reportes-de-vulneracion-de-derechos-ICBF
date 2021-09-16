@@ -51,15 +51,23 @@ Los objetos de esta base fueron descargados mediante el servicio de [Logic Apps]
 
 ## Algoritmos y Entrenamiento
 En la ubicación 
-
-## Artefacto o Visualización
-
-## Diccionario
+####  I. Diccionario
 
 Se incluye el diccionario en la carpeta [`Documentación/DiccionarioDatos`](Documentación/DiccionarioDatos)
 
 * ``diccionariodenuncias.xlsx`` <br>
 Este diccionario contiene todas las variables usadas en los dataframe unidos.
+
+
+#### II. Modelo entidad relación 
+
+
+## Artefacto o Visualización
+
+
+
+#### Powebyi
+
 
 
 ## Datasets

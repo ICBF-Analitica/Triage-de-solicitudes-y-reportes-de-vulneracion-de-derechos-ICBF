@@ -1,10 +1,4 @@
 ![Cabezote](Cabezote.png)
+# Esta carpeta contiene la información de las fuente de datos o los orígenes desde donde se extrae la información y su comprensión de datos (análisis exploratorio).
 
-# Carpeta Donde se aloja el codigo del proyecto
-Esta carpeta aloja todo el código para un proyecto de ciencia de datos. Tiene tres subcarpetas, que pertenecen a 3 etapas del ciclo de vida de la ciencia de datos:
-
-1.Fuentes de datos y entendimiento
-
-2.Modelado
-
-3.Despliegue
+En cuanto a los datos, estos deben ser una muestra del universo de datos utilizado en el desarrollo del proyecto piloto que permita la comprobación de los algoritmos compartidos. Estos datos deben cumplir con las leyes vigentes de protección de datos personales y acceso a información clasificada o reservada descrita en la Ley de Transparencia. Para la publicación es indispensable la anonimización de los datos en los casos en los que aplique.
