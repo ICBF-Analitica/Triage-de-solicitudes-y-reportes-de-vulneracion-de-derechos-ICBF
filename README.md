@@ -50,7 +50,9 @@ Esta base consta de 23975 registros entre las fechas 01 de octubre de 2020 y 17 
 Los objetos de esta base fueron descargados mediante el servicio de [Logic Apps](https://azure.microsoft.com/es-es/services/logic-apps/) de Microsoft Azure mediante la conexión a la API de twitter y marcados en tiempo real mediante el servicio de [Text Analytics](https://azure.microsoft.com/es-es/services/cognitive-services/text-analytics/) el cual es un componente de detección del sentimiento que marca la polaridad (positivo, negativo, neutro) de los textos (tweets).
 
 ## Algoritmos y Entrenamiento
-En la ubicación 
+
+En la ubicación [`AlgoritmosyEntrenamiento/Para-Modelo`](App/Despliegue) se encuentra tanto el Notebook ``p_to_dasboard_twitter.ipynb`` como el modelo de dashboard ``p_to_dasboard_twitter.html`` desarrollados para este ejercicio exploratorio con información referente al conjunto de datos ``Senti_Tweet_all_variables.xlsx``.
+
 ####  I. Diccionario
 
 Se incluye el diccionario en la carpeta [`Documentación/DiccionarioDatos`](Documentación/DiccionarioDatos)
@@ -66,13 +68,9 @@ Este diccionario contiene todas las variables usadas en los dataframe unidos.
 
 
 
-#### Powebyi
+#### Agregar vistas y link de powerbyi
 
 
 
-## Datasets
 
 
-## Dashboard
-
-En la ubicación [`App/Despliegue`](App/Despliegue) se encuentra tanto el Notebook ``p_to_dasboard_twitter.ipynb`` como el modelo de dashboard ``p_to_dasboard_twitter.html`` desarrollados para este ejercicio exploratorio con información referente al conjunto de datos ``Senti_Tweet_all_variables.xlsx``.
