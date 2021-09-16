@@ -55,7 +55,7 @@ En la ubicación [`AlgoritmosyEntrenamiento/Para-Modelo`](App/Despliegue) se enc
 
 ####  I. Diccionario
 
-Se incluye el diccionario en la carpeta [`Datos/DiccionarioDatos`](Documentación/DiccionarioDatos)
+Se incluye el diccionario en la carpeta [`Datos/DiccionarioDatos`](Datos/DiccionarioDatos)
 
 * ``diccionariodenuncias.xlsx`` <br>
 Este diccionario contiene todas las variables usadas en los dataframe unidos.
