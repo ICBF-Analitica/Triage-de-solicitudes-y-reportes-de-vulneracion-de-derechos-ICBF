@@ -1,4 +1,4 @@
-
+![Cabezote](Cabezote.png)
 ## Carpeta para alojar todos los documentos de un proyecto de ciencia de datos.
 Los documentos contendrán información sobre lo siguiente
 
