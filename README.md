@@ -36,7 +36,7 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 
 ## Tecnologías involucradas
-![Cabezote](Imágenes/DiagramadeArq.png)
+![DiagramadeArq](Imágenes/DiagramadeArq.PNG)
 
 ## Datos 
 Se encuentran dos bases de datos principales (ubicadas en [`Datos-Ejemplo/Para-Modelo`](Datos-Ejemplo/Para-Modelo)):
