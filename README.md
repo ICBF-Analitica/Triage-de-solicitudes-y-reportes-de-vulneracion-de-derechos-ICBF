@@ -43,27 +43,15 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 
 ## Datos 
-Se encuentran dos bases de datos principales (ubicadas en [`Datos-Ejemplo/Para-Modelo`](Datos-Ejemplo/Para-Modelo)):
+Debida 
 
-* ``dscrga_json.csv`` <br>
-Esta base cuenta con 5968 registros de tweets en los periodos 2018-II, 2019 y 2020-I, sobre las que se establecieron tres criterios de búsqueda en los objetos tweets. Estos criterios se basan en las palabras “DANE, empleo o desempleo”. 
-Los datos fueron descargados mediante el paquete de [jsonlite](https://cran.r-project.org/web/packages/jsonlite/jsonlite.pdf) de RStudio. Este se ejecuta mediante un código que simula una búsqueda de términos en la página de Twitter con los criterios establecidos.
-
-* ``Senti_Tweet_all_variables.xlsx`` <br>
-Esta base consta de 23975 registros entre las fechas 01 de octubre de 2020 y 17 de diciembre de 2020 utilizando la etiqueta de búsqueda “DANE_Colombia”.
-Los objetos de esta base fueron descargados mediante el servicio de [Logic Apps](https://azure.microsoft.com/es-es/services/logic-apps/) de Microsoft Azure mediante la conexión a la API de twitter y marcados en tiempo real mediante el servicio de [Text Analytics](https://azure.microsoft.com/es-es/services/cognitive-services/text-analytics/) el cual es un componente de detección del sentimiento que marca la polaridad (positivo, negativo, neutro) de los textos (tweets).
 
 ## Algoritmos y Entrenamiento
 
 En la ubicación [`AlgoritmosyEntrenamiento/Para-Modelo`](AlgoritmosyEntrenamiento/Para-Modelo) se encuentran
 los distintos Notebook que el lector podrá ``p_to_dasboard_twitter.ipynb`` como el modelo de dashboard ``p_to_dasboard_twitter.html`` desarrollados para este ejercicio exploratorio con información referente al conjunto de datos ``Senti_Tweet_all_variables.xlsx``.
 
-####  I. Diccionario
 
-Se incluye el diccionario en la carpeta [`Datos/DiccionarioDatos`](Datos/DiccionarioDatos)
-
-* ``diccionariodenuncias.xlsx`` <br>
-Este diccionario contiene todas las variables usadas en los dataframe unidos.
 
 
 #### II. Modelo entidad relación 
