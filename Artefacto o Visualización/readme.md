@@ -1,9 +1,29 @@
-![Cabezote](Cabezote.png)
-# DATOS
+![Cabezote](Imagenes/Cabezote.png)
 
-####  I. Diccionario
+# ARTEFACTO O VISUALIZACIÓN
 
-* ``diccionariodenuncias.xlsx`` <br>
-Este diccionario contiene todas las variables usadas en los dataframe unidos.
+## Power BI
 
-En cuanto a los datos, estos deben ser una muestra del universo de datos utilizado en el desarrollo del proyecto piloto que permita la comprobación de los algoritmos compartidos. Estos datos deben cumplir con las leyes vigentes de protección de datos personales y acceso a información clasificada o reservada descrita en la Ley de Transparencia. Para la publicación es indispensable la anonimización de los datos en los casos en los que aplique.
+Es una variedad de aplicaciónes y servicios que funcionan a partir de la nube usado para recopilar, administrar y analizar datos de diversas fuentes, mediante una interfaz fácil de usar. Para las distintas instancias del **ICBF** será de gran apoyo para ver que sucede con los niños, niñas y adolescentes en el territorio colombiano, mediante informes generados por medio de ***Power BI***  usando los datos previamente entrenados y evaluados de las denuncias realizadas en los distintos canales.  
+
+A continuación algunas de las visualizaciones o tableros generados. 
+# Reporte de amenazas o vulneración y solicitudes de restablecimiento de derechos 
+* # Características.
+
+![Cabezote](Imagenes/powerbi1.png)
+
+
+* # Gestión Peticiones.
+
+
+![Cabezote](Imagenes/powerbi2.png)
+* # Caracteristicas Afectados.
+
+![Cabezote](Imagenes/powerbi3.png)
+
+# Tablero para Defensores de Familia.
+
+* ## Priorización de Solicitudes de Restabblecimiento de Derechos y Reportes de Amenaza o Vulneración.
+
+![Cabezote](Imagenes/powerbi4.png)
+

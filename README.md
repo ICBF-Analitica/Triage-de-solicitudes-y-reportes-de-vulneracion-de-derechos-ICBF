@@ -2,7 +2,7 @@
 
 
 
-# Modelo
+# MODELO TRIAGE S.R.V.D
 Realizar procesamiento de lenguaje natural (NLP) sobre los textos e interacciones en chat de denuncias de vulneración de derechos de niños, niñas y adolescentes realizadas a través de los canales del ICBF, con el propósito de diseñar artefactos de priorización de verificaciones en campo u otras herramientas similares como artefactos de reacción inmediata, chatbots, etc.
 
 ## Descripción
@@ -43,14 +43,9 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 
 ## Datos 
-Debida 
 
 
 ## Algoritmos y Entrenamiento
-
-En la ubicación [`AlgoritmosyEntrenamiento/Para-Modelo`](AlgoritmosyEntrenamiento/Para-Modelo) se encuentran
-los distintos Notebook que el lector podrá ``p_to_dasboard_twitter.ipynb`` como el modelo de dashboard ``p_to_dasboard_twitter.html`` desarrollados para este ejercicio exploratorio con información referente al conjunto de datos ``Senti_Tweet_all_variables.xlsx``.
-
 
 
 
