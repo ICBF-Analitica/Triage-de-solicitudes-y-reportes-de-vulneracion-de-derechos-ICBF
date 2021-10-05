@@ -16,7 +16,7 @@ Para lograr dicho resultado el proyecto involucra 5 etapas: gestión de los dato
 Esta etapa contiene distintos pasos que permiten tener una base de datos unificada para el entrenamiento de modelos de *Machine Learning* con 31 variables obtenidas a partir de la información que contiene la solicitud, entre 100 y 300 variables obtenidas a partir del Procesamiento de Lenguaje Natural (dependiendo del método empleado) y 1.163.243 solicitudes o reportes de vulneración de derechos presentadas al ICBF entre enero de 2015 y mayo de 2021. 
 
 
-### 1.1 Cruce distintas fuentes de información
+### 1.1. Cruce distintas fuentes de información
 
 La fuente de datos principal es la base de Solicitudes de Restablecimiento de Derechos (SRD) y de Reportes de Amenaza o Vulneración de Derechos (RAVD) registrada por la Dirección de Servicios y Atención del ICBF entre enero de 2015 y mayo de 2021. Esta fuente registra información sobre cada solicitud o reporte (fecha y hora de registro, tipo de vulneración de derechos reportada, canal de recepción de la solicitud y centro zonal al que se direcciona), información del peticionario que la presenta (edad, sexo, tipo de documento de identidad) y del afectado al que posiblemente se le están vulnerando sus derechos (edad, sexo, tipo de documento de identidad, país de residencia, grupo étnico, si presenta alguna discapacidad o si es víctima de desplazamiento).
 
@@ -26,7 +26,7 @@ En    [`Procesados`](Procesados) se encuentra el script respectivo para estos cr
    
 * ``1_Importacion y cruce.ipynb`` <br> 
 
-### 1.2 Limpieza y creación de variables
+### 1.2. Limpieza y creación de variables
 
 En el paso anterior se obtuvo una base de datos unificada, pero es necesario comprobar que las variables y registros obtenidos previamente sean consistentes, sin duplicados o datos inválidos, ara lo cual se realiza un proceso de limpieza y homologación de categorías.  y la creación de la variable objetivo.
 
@@ -55,7 +55,11 @@ En [`Procesados`](Procesados) se encuentra el script para el preprocesamiento de
 
 ## 3. Entrenamiento de modelos de *Machine Learning*
 
-Dos grupos de algoritmos o modelos de *Machine Learning* son entrenados para la tarea de clasificación de las solicitudes y reportes: Árboles de decisión con potenciación del gradiente (*Gradient Boosted Trees*) mediante la librería de XGBoost y Redes neuronales con la librería de Tensorflow Keras.
+Luego de realizar la limpieza y preprocesamiento de los datos se procede a la etapa de entrenamiento de modelos. Dos grupos de algoritmos o modelos de *Machine Learning* son entrenados para la tarea de clasificación de las solicitudes y reportes: Árboles de decisión con potenciación del gradiente (*Gradient Boosted Trees*) mediante la librería de XGBoost y Redes neuronales con la librería de Tensorflow Keras.
+
+Sin importar el algoritmo, para el entrenamiento y evaluación de los modelos solo se emplearon las solicitudes registradas entre enero de 2005 y mayo de 2020. Esto corte tiene en cuenta que la apertura de un PARD puede tomar cierto tiempo, por lo que las solicitudes entre junio de 2020 y mayo 2021 pueden no haber cumplido todo el proceso requerido y no tener una clasificación final en la variable objetivo. Luego de este filtro se tienen 982.085 registros, de los cuales el 80% (785.668) se emplean para el entrenamiento y 20% (196.417) para evaluación.
+
+### 3.1. Modelos de redes neuronales
 
 Se entrenaron 5 modelos diferentes de redes neuronales, todos los cuales utilizaban como preprocesamiento de la descripción de la petición el texto a secuencias. 
 
@@ -63,17 +67,31 @@ Se entrenaron 5 modelos diferentes de redes neuronales, todos los cuales utiliza
 
 En la carpeta [`Procesados`](Procesados) se encuentra el script empleado para el entrenamiento de las redes neuronales:
 
-* ``4.1_ML_RedesNeuronales.ipynb`` <br>
+* ``4.1_ML_RedesNeuronales.ipynb``
 
-Se entrenaron tres tipos de *Gradient Boosted Trees*, que variaban en el método de preprocesamiento la descripción de la petición y el uso de pesos diferenciados para contemplar el desbalance existente entre las distintas categorías de la variable objetivo. El primer 
+### 3.2. Modelos de *Gradient Boosted Trees*
 
-grupos de variables diferentes, obtenidas a partir de  preprocesada con *TD-IDF* y otro con *Word Embeddings*. Además, se emplearon dos variaciones de entrenamiento con *TD-IDF*, uno en el que contempló el  (unas son mucho más frecuentes que otras) y por lo que se añadieron pesos para el entrenamiento y otro en el que no. En la carpeta [`Procesados`](Procesados) se encuentran los scripts para el entrenamiento de estos distintos tipos de árboles de decisión entrenados:
+Se entrenaron tres tipos de *Gradient Boosted Trees*, que variaban en el método de preprocesamiento la descripción de la petición y el uso de pesos diferenciados para contemplar el desbalance existente entre las distintas categorías de la variable objetivo. 
+* En el primer tipo, que se entrena en el script ``4.2_ML_XGBoost_Embedding_Weights.ipynb``, se emplean las variables resultantes del preprocesamiento de texto con *Word Embeddings* y pesos diferenciados para cada observación, esto último para que el modelo tenga en cuenta que también es importante clasificar las solicitudes "Verdaderas PARD Institucional" a pesar de que representan solo el 6,4% de los registros y no se ocupe solamente de clasificar correctamente la categoría mayoritaria (que en este caso es "Verdadera no PARD" con 31,4% de los registros).
+* El segundo tipo de modelos, representado en el script ``4.3_ML_XGBoost_TFIDF_Weights.ipynb``, emplea igualmente los pesos diferenciados pero utiliza el método *TD-IDF* de Procesamiento de Lenguaje Natural.
+* Finalmente, el tercer tipo de modelos, entrenados en el script ``4.4_ML_XGBoost_TFIDF_NoWeights.ipynb``, emplea igualmente las variables obtenidas luego de aplicar *TF-IDF* a la descripción de la petición, pero en cambio da pesos iguales a todas las observaciones sin importar la categoría de la variable objetivo en la que se encuentren.
 
-* ``4.2_ML_XGBoost_Embedding_Weights.ipynb`` <br>
-* ``4.3_ML_XGBoost_TFIDF_Weights.ipynb`` <br>
-* ``4.4_ML_XGBoost_TFIDF_NoWeights.ipynb`` <br>
+En estos modelos de árboles de decisión también se hizo búsqueda de los mejores hiperparámetros (*hyperparameter tuning* o *grid search* como se conoce en inglés) mediante la librería HyperOpt, por lo que para cada uno de estos tres tipos de modelo se entrenaron 50 iteraciones con distintos combinaciones de hiperparámetros, lo que resulta en un total de 150 modelos entrenados de *Gradient Boosted Trees*
+
 
 ## 4. Evaluación de resultados de los modelos y selección del mejor modelo
+
+Para la etapa de evaluación de los distintos modelos fue fundamental la librería MLflow, que mediante su integración con Databricks permite guardar los hiperparámetros empleados en cada entrenamiento, registrar los modelos para su fácil puesta en producción e igualmente registrar las métricas en un tablero que facilita su comparación entre los diferentes modelos. La imagen a continuación muestra el tablero de MLflow en el que se pueden ver los distintos modelos entrenados con sus respectivas métricas e hiperparámetros.
+
+![MLflow](../Imágenes/MLflow.PNG)
+
+En general se encontró que con los algoritmos y métodos implementados realizar una clasificación acertada entre las 5 categorías de la variable objetivo es una tarea difícil. Todos los modelos tuvieron un *Accuracy* (Exactitud) no superior a 46,7% y un *Average Recall* (Exhaustividad Promedio) no superior a 46,8%.
+
+Tras analizar detalladamente la razón de este relativamente bajo desempeño de los distintos modelos, se encontró que suele confundir la clasificación entre el grupo de  solicitudes Verdaderas (aquellas con las categorías "Verdadera no PARD", "Verdadera PARD no Institucional" y "Verdadera PARD Institucional") o entre el grupo de Fallidas o Falsas (aquellas con las categorías "Falsa" o "Sin Definir o Fallida"). Sin embargo, si se agrupan las 5 categorías iniciales en estas dos categorías de Verdaderas y Falsas o Fallidas se encuentra que el desempeño de los modelos entrenados es bueno, llegando a un *Accuracy* de hasta 72,7% y un *Recall* de 77,1%. Esto se puede ilustrar mediante la matriz de confusión del modelo elegido.
+
+<p align="center">
+  <img src="../Imágenes/MatrizConfusion_Red1_ModeloElegido.png" />
+</p>
 
 ## 5. Triage/Clasificación de nuevas solicitudes
 
