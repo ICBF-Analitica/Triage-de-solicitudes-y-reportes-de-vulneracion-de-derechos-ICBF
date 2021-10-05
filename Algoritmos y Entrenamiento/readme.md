@@ -6,32 +6,37 @@
 En el marco de la Alianza Nacional contra la Violencia hacia Niñas, Niños y Adolescentes, el *Instituto Colombiano de Bienestar Familiar* (ICBF) ha trabajado en el desarrollo de modelos predictivos de vulneraciones que afectan a la niñez y adolescencia. La realización de estos modelos va en línea con el objetivo de *“Crear las condiciones para anticipar y resolver las violencias y vulneraciones contra niñas, niños y adolescentes”*, contenido en el Plan Nacional de Desarrollo 2018-2022. 
 
 ## Metodología
-Con base a las características de las denuncias realizadas en los distintos canales, los modelos desarrollados de aprendizaje de máquinas *(machine learning)* permiten predecir la probabilidad o riesgo de que se presente una vulneración de derechos. Usando esto, es posible generar algoritmos que organizen dichas denuncias a fin de que estas puedan ser visualizadas y atendidas por el personal del ICBF mediante el artefacto o visualización a realizar acorde a los objetivos planteados.
+Con base a las información provista en las solicitudes y reportes de vulneración de derechos presentadas al ICBF por los distintos canales, el modelo desarrollado de aprendizaje de máquinas *(machine learning)* permite predecir con cierto nivel de confianza cuál será el resultado de la solicitud: si esta será clasificada como una solicitud Verdadera (en el sentido que en verdad reporta una situación de vulneración de derechos que debe ser priorizada) o si se clasificará como una solicitud Sin Definir, Fallida o Falsa (que por falta de información suficiente no podrá ser verificada o que al momento de ser verificada en verdad no involucraba una situación de vulneración de derechos). Usando este modelo es posible realizar una Traige de todas las solicitudes que ingresan al ICBF diariamente y así priorizar para la verificación y acompañamiento aquellas que denoten mayor gravedad.
 
-Previamente desde G.A.I *(Grupo de Analítica institucional)* se habían realizado versiones del modelo probabilístico, las cuales habían sido difundidas en instancias internas y externas al ICBF. Gracias a ello, al momento de iniciar esta versión del modelo se contaba con un conocimiento acumulado de la problemática y con la retroalimentación para poder realizar los siguientes pasos: 
-
+Para lograr dicho resultado el proyecto involucra 5 etapas: gestión de los datos, Procesamiento de Lenguaje Natural (PLN, o NLP por sus siglas en inglés) de la descripción que contiene cada solicitud, entrenamiento de modelos de *Machine Learning*, evaluación de los distintos modelos entrenados y predicción/clasificación de nuevas solicitudes que ingresan diaramente al ICBF.
 
 
 ## 1. Gestión de los datos: 
 
-Esta etapa contiene distintos pasos que permiten tener una base de datos unificada para poder realizar procesos de predicción con xxxx variables y cerca de xxxxxx de las denuncias realizadas en los distintos canales del ICBF de niños, niñas y adolescentes. 
+Esta etapa contiene distintos pasos que permiten tener una base de datos unificada para el entrenamiento de modelos de *Machine Learning* con 31 variables obtenidas a partir de la información que contiene la solicitud, entre 100 y 300 variables obtenidas a partir del Procesamiento de Lenguaje Natural (dependiendo del método empleado) y 1.163.243 solicitudes o reportes de vulneración de derechos presentadas al ICBF entre enero de 2015 y mayo de 2021. 
 
 
-### 1.1 Importación y Cruce 
+### 1.1 Cruce distintas fuentes de información
 
-Se parte de cruzar la base principal de peticiones de vulneración y restablecimiento de derechos con las bases de PARD, con un archivo de Reportes de Amenaza o Vulneración -RAVD- que contiene algunas variables importantes que no están en la base de peticiones y con la base resultante del modelo probabilisto de vulneración de derechos (que parte de registros del Sisbén IV). 
+La fuente de datos principal es la base de Solicitudes de Restablecimiento de Derechos (SRD) y de Reportes de Amenaza o Vulneración de Derechos (RAVD) registrada por la Dirección de Servicios y Atención del ICBF entre enero de 2015 y mayo de 2021. Esta fuente registra información sobre cada solicitud o reporte (fecha y hora de registro, tipo de vulneración de derechos reportada, canal de recepción de la solicitud y centro zonal al que se direcciona), información del peticionario que la presenta (edad, sexo, tipo de documento de identidad) y del afectado al que posiblemente se le están vulnerando sus derechos (edad, sexo, tipo de documento de identidad, país de residencia, grupo étnico, si presenta alguna discapacidad o si es víctima de desplazamiento).
 
-En    [`Procesados`](Procesados) se encuentra el script respectivo:
+Esta información se cruza con las bases de Ingresos a Proceso Administrativo de Restablecimiento de Derechos (PARD) de la Subdirección de Restablecimiento de Derechos. Este cruce es fundamental para conocer cuál fue el resultado de las distintas solicitudes y reportes y así contruir la variable objetivo del modelo. Adicionalmente se realizan dos cruces para recuperar variables que puedan tener un alto poder predictivo en el modelo: las coordenadas de los centro zonales a los que se direcciona cada solicitud y 7 variables de la regional correspondiente al centro zonal (porcentajes de población étnica, indígena y rural obtenidas del Censo Nacional de Población y Vivienda del 2018 realizado por el DANE, las tasas de violencia intrafamiliar e interpersonal por cada 100.000 habitantes del Instituto Nacional de Medicina Legal, la tasa de víctimas de delitos sexuales por cada 100.000 habitantes obtenidas del SPOA de la Fiscalía General de la Nación y la tasa de fecundidad específica por cada 1.000 mujeres entre 15 y 19 años de Estadísticas Vítales del DANE).
+
+En    [`Procesados`](Procesados) se encuentra el script respectivo para estos cruces:
    
-* ``Importación y cruce.ipynb`` <br> 
+* ``1_Importacion y cruce.ipynb`` <br> 
 
-### 1.2 Limpieza
+### 1.2 Limpieza y creación de variables
 
-En el paso anterior se obtuvo una base de datos unificada pero es necesario comprobar que los cruces realizados previamente sean consistentes, evitando repeticiones, datos invalidos y quede una base consolidada de peticiones con los campos necesarios para obtener la variable objetivo. 
+En el paso anterior se obtuvo una base de datos unificada, pero es necesario comprobar que las variables y registros obtenidos previamente sean consistentes, sin duplicados o datos inválidos, ara lo cual se realiza un proceso de limpieza y homologación de categorías.  y la creación de la variable objetivo.
 
-Ver script en [`Procesados`](Procesados):
+A partir del conocimiento de la problemática y la información disponible en las bases de datos utilizadas se crearon dos nuevas variables *(feature engineering)* que tienen potencial poder predictivo: una categorización del peticionario en el que mediante los nombres y apellidos registrados se identifica si el peticionario es el mismo afectado, si comparte apellidos con el afectado y por lo tanto puede ser un familiar, si es un anónimo, o si hace parte de una institución como la Policía, la Fiscalía, un centro de salud, una entidad judicial, una institución educativa, el Ministerio Público, de una ONG o del ICBF; también se crea una variable indicativa que permite identificar si existe suficiente información para adelantar la verificación de la solicitud, es decir, que cuente por lo menos con los nombres del afectado y una dirección específica.
+
+También se realizó la creación de la variable objetivo, esto es, la categoría en la que se clasifica el resultado de cada solicitud luego de la verificación y que también tiene implícito un orden de urgencia para darle prioridad. La variable objetivo cuenta con 5 categorías: Falsa, Sin Definir o Fallida, Verdadera no PARD, Verdadera PARD no Institucional y Verdadera PARD Institucional. Una solicitud se clasifica como falsa cuando luego de la constatación o verificación por el equipo de Defensoría de Familia se encuentra que en la situación reportada no existe una vulneración de derechos; la categoría "Sin Definir o Fallida" se aplica a los reportes que no pudieron constatarse porque los datos de ubicación no fueron entregados o son errados; la clasificación de Verdadera no PARD es para aquellas solicitudes que luego de la verificación se encontró que efectivamente existe una vulneración de derechos pero no revestía la gravedad para la apertura de un PARD sino un acompañamiento mediante el Sistema Nacional de Bienestar Familiar; para los reportes en las categorías Verdadera PARD se verificó la vulneración de derechos y se hizo apertura de un PARD, pero varían en la medida tomada para el restablecimiento de los derechos, si se tomaba una medida Institucional en la que se ubica al menor por fuera de su hogar o no.
+
+En la carpeta [`Procesados`](Procesados) se encuentra el script para esta limpieza y creación de nuevas variables:
    
-* ``Limpieza_denuncias.ipynb`` <br> 
+* ``2_Limpieza y creacion de variables.ipynb`` <br> 
 
 ## 2. Predicción
 
