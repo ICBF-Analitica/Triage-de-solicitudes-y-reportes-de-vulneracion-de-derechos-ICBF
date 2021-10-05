@@ -61,7 +61,7 @@ Sin importar el algoritmo, para el entrenamiento y evaluación de los modelos so
 
 ### 3.1. Modelos de redes neuronales
 
-Se entrenaron 5 modelos diferentes de redes neuronales, todos los cuales utilizaban como preprocesamiento de la descripción de la petición el texto a secuencias. 
+Se entrenaron 4 modelos diferentes de redes neuronales, todos los cuales utilizaban como preprocesamiento de la descripción de la petición el texto a secuencias. 
 
 **Incluir aquí descripción de modelos de redes neuronales**.  
 
@@ -85,15 +85,22 @@ Para la etapa de evaluación de los distintos modelos fue fundamental la librer�
 
 ![MLflow](../Imágenes/MLflow.PNG)
 
-En general se encontró que con los algoritmos y métodos implementados realizar una clasificación acertada entre las 5 categorías de la variable objetivo es una tarea difícil. Todos los modelos tuvieron un *Accuracy* (Exactitud) no superior a 46,7% y un *Average Recall* (Exhaustividad Promedio) no superior a 46,8%.
+En general se encontró que con los algoritmos y métodos implementados realizar una clasificación acertada entre las 5 categorías de la variable objetivo es una tarea difícil. Todos los modelos tuvieron un *Accuracy* (Exactitud) no superior a 46,7% y un *Average Recall* (Exhaustividad Promedio) no superior a 46,8% (Como fuente de consulta sobre las distintas métricas se puede emplear [el artículo de Wikipedia sobre matriz de confusión](https://en.wikipedia.org/wiki/Confusion_matrix) o [la documentación de scikit-learn sobre evaluación de modelos](https://scikit-learn.org/stable/modules/model_evaluation.html).
 
-Tras analizar detalladamente la razón de este relativamente bajo desempeño de los distintos modelos, se encontró que suele confundir la clasificación entre el grupo de  solicitudes Verdaderas (aquellas con las categorías "Verdadera no PARD", "Verdadera PARD no Institucional" y "Verdadera PARD Institucional") o entre el grupo de Fallidas o Falsas (aquellas con las categorías "Falsa" o "Sin Definir o Fallida"). Sin embargo, si se agrupan las 5 categorías iniciales en estas dos categorías de Verdaderas y Falsas o Fallidas se encuentra que el desempeño de los modelos entrenados es bueno, llegando a un *Accuracy* de hasta 72,7% y un *Recall* de 77,1%.
+Tras analizar detalladamente la razón de este relativamente bajo desempeño de los distintos modelos, se encontró que suele confundir la clasificación entre el grupo de  solicitudes Verdaderas (aquellas con las categorías "Verdadera no PARD", "Verdadera PARD no Institucional" y "Verdadera PARD Institucional") o entre el grupo de Fallidas o Falsas (aquellas con las categorías "Falsa" o "Sin Definir o Fallida"). Sin embargo, si se agrupan las 5 categorías iniciales en estas 2 categorías de Verdaderas y Fallidas o Falsas se encuentra que el desempeño de los modelos entrenados es bueno, llegando a un *Accuracy* de hasta 72,7%, un *Recall* en el grupo de Verdaderas de hasta 77,1% y un *Recall* en el grupo de Fallidas o Falsas de hasta 70,8%.
 
-Este análisis se puede ilustrar mediante la matriz de confusión del modelo elegido, la cual se obtiene a partir del conjunto de datos de evaluación con la categoría real/observada y la categoría predicha por el modelo. Allí se observa lo siguiente para cada una de las categorías de clasificación de las solicitudes: 1) para las 60.826 solicitudes Falsas en los datos de evaluación se clasifican correctamente el 36%, mientras que el error más frecuente es clasificarlas como Sin Definir o Fallida con el 28% de los casos; 2) para las 34.020 solicitudes Sin Definir o Fallidas se clasifican correctamente el 52% y la siguiente categoría predicha es Falsa con el 22% de los casos; 3) de las 61.527 solicitudes Verdaderas no PARD se predicen en la misma categoría el 41% aunque otro 32% se clasifican en las otras dos categorías de Verdaderas PARD; 4) el 59% de las 27.533 solicitudes Verdaderas PARD no Institucional son clasificadas correctamente, mientras otro 26% se clasifican en las otras categorías de Verdaderas; 5) de 12.506 reportes Verdaderos PARD Institucional el 46% se predicen correctamente, mientras que otro 39% se predicen como Verdaderas no PARD o Verdaderas PARD no Institucional.
+Este análisis se puede ilustrar mediante la matriz de confusión del **modelo elegido**, que corresponde al modelo de **Redes Neuronales # 1**. Esta matriz se obtiene a partir del conjunto de datos de evaluación con la categoría real/observada y la categoría predicha por el modelo. Allí se observa lo siguiente para cada una de las 5 categorías de clasificación de las solicitudes: 
+1. Para las 60.826 solicitudes Falsas en los datos de evaluación se clasifican correctamente el 36%, mientras que el error más frecuente es clasificarlas como Sin Definir o Fallida con el 28% de los casos
+2. Para las 34.020 solicitudes Sin Definir o Fallidas se clasifican correctamente el 52% y la siguiente categoría predicha es Falsa con el 22% de los casos
+3. De las 61.527 solicitudes Verdaderas no PARD se predicen en la misma categoría el 41% aunque otro 32% se clasifican en las otras dos categorías de Verdaderas PARD
+4. El 59% de las 27.533 solicitudes Verdaderas PARD no Institucional son clasificadas correctamente, mientras otro 26% se clasifican en las otras categorías de Verdaderas
+5. De 12.506 reportes Verdaderos PARD Institucional el 46% se predicen correctamente, mientras que otro 39% se predicen como Verdaderas no PARD o Verdaderas PARD no Institucional.
 
 <p align="center">
   <img src="../Imágenes/MatrizConfusion_Red1_ModeloElegido.png" />
 </p>
+
+Para elegir el modelo de **Redes Neuronales # 1** se tomó como criterio el promedio de tres métricas: el *F1-Score* (que es la media armónica de *recall* y *precision*) para cada una de las 2 categorías agrupadas que es de 74,5% para el grupo de Verdaderas y 70,6% para el grupo de Fallidas o Falsas, y el *Average recall* de la clasificación en 5 categorías que es de 46,8%.
 
 ## 5. Triage/Clasificación de nuevas solicitudes
 
