@@ -1,4 +1,4 @@
-![Cabezote](Cabezote.png)
+![Cabezote](../Imágenes/Cabezote.png)
 
 # ALGORITMOS Y ENTRENAMIENTO 
 
