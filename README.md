@@ -34,11 +34,12 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 * [Datos](#Datos)
 * [Algoritmos y Entrenamiento](#AlgoritmosyEntrenamiento)
 * [Artefacto o Visualización](#ArtefactoVis)
-* [Diccionario](#Diccionario)
+
 
 
 ## Tecnologías involucradas
-![DiagramadeArq](Imágenes/DiagramadeArq.PNG)
+
+
 
 
 
