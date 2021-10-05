@@ -57,11 +57,17 @@ En [`Procesados`](Procesados) se encuentra el script para el preprocesamiento de
 
 Dos grupos de algoritmos o modelos de *Machine Learning* son entrenados para la tarea de clasificación de las solicitudes y reportes: Árboles de decisión con potenciación del gradiente (*Gradient Boosted Trees*) mediante la librería de XGBoost y Redes neuronales con la librería de Tensorflow Keras.
 
-Se entrenaron 5 modelos diferentes de redes neuronales, todos los cuales utilizaban como preprocesamiento de la descripción de la petición el texto a secuencias. **Incluir aquí descripción de modelos de redes neuronales**.  En la carpeta [`Procesados`](Procesados) se encuentra el script empleado para el entrenamiento de las redes neuronales:
+Se entrenaron 5 modelos diferentes de redes neuronales, todos los cuales utilizaban como preprocesamiento de la descripción de la petición el texto a secuencias. 
+
+**Incluir aquí descripción de modelos de redes neuronales**.  
+
+En la carpeta [`Procesados`](Procesados) se encuentra el script empleado para el entrenamiento de las redes neuronales:
 
 * ``4.1_ML_RedesNeuronales.ipynb`` <br>
 
-Los árboles de decisión fueron entrenados con dos grupos de variables diferentes, obtenidas a partir de la descripción de la petición preprocesada con *TD-IDF* y otro con *Word Embeddings*. Además, se emplearon dos variaciones de entrenamiento con *TD-IDF*, uno en el que contempló el desbalance existente entre las distintas categorías de la variable objetivo (unas son mucho más frecuentes que otras) y por lo que se añadieron pesos para el entrenamiento y otro en el que no. En la carpeta [`Procesados`](Procesados) se encuentran los scripts para el entrenamiento de estos distintos tipos de árboles de decisión entrenados:
+Se entrenaron tres tipos de *Gradient Boosted Trees*, que variaban en el método de preprocesamiento la descripción de la petición y el uso de pesos diferenciados para contemplar el desbalance existente entre las distintas categorías de la variable objetivo. El primer 
+
+grupos de variables diferentes, obtenidas a partir de  preprocesada con *TD-IDF* y otro con *Word Embeddings*. Además, se emplearon dos variaciones de entrenamiento con *TD-IDF*, uno en el que contempló el  (unas son mucho más frecuentes que otras) y por lo que se añadieron pesos para el entrenamiento y otro en el que no. En la carpeta [`Procesados`](Procesados) se encuentran los scripts para el entrenamiento de estos distintos tipos de árboles de decisión entrenados:
 
 * ``4.2_ML_XGBoost_Embedding_Weights.ipynb`` <br>
 * ``4.3_ML_XGBoost_TFIDF_Weights.ipynb`` <br>
