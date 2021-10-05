@@ -32,20 +32,43 @@ En el paso anterior se obtuvo una base de datos unificada, pero es necesario com
 
 A partir del conocimiento de la problemática y la información disponible en las bases de datos utilizadas se crearon dos nuevas variables *(feature engineering)* que tienen potencial poder predictivo: una categorización del peticionario en el que mediante los nombres y apellidos registrados se identifica si el peticionario es el mismo afectado, si comparte apellidos con el afectado y por lo tanto puede ser un familiar, si es un anónimo, o si hace parte de una institución como la Policía, la Fiscalía, un centro de salud, una entidad judicial, una institución educativa, el Ministerio Público, de una ONG o del ICBF; también se crea una variable indicativa que permite identificar si existe suficiente información para adelantar la verificación de la solicitud, es decir, que cuente por lo menos con los nombres del afectado y una dirección específica.
 
-También se realizó la creación de la variable objetivo, esto es, la categoría en la que se clasifica el resultado de cada solicitud luego de la verificación y que también tiene implícito un orden de urgencia para darle prioridad. La variable objetivo cuenta con 5 categorías: Falsa, Sin Definir o Fallida, Verdadera no PARD, Verdadera PARD no Institucional y Verdadera PARD Institucional. Una solicitud se clasifica como falsa cuando luego de la constatación o verificación por el equipo de Defensoría de Familia se encuentra que en la situación reportada no existe una vulneración de derechos; la categoría "Sin Definir o Fallida" se aplica a los reportes que no pudieron constatarse porque los datos de ubicación no fueron entregados o son errados; la clasificación de Verdadera no PARD es para aquellas solicitudes que luego de la verificación se encontró que efectivamente existe una vulneración de derechos pero no revestía la gravedad para la apertura de un PARD sino un acompañamiento mediante el Sistema Nacional de Bienestar Familiar; para los reportes en las categorías Verdadera PARD se verificó la vulneración de derechos y se hizo apertura de un PARD, pero varían en la medida tomada para el restablecimiento de los derechos, si se tomaba una medida Institucional en la que se ubica al menor por fuera de su hogar o no.
+También se realizó la creación de la variable objetivo, esto es, la categoría en la que se clasifica el resultado de cada solicitud luego de la verificación y que también tiene implícito un orden de urgencia para darle prioridad. La variable objetivo cuenta con 5 categorías: Falsa, Sin Definir o Fallida, Verdadera no PARD, Verdadera PARD no Institucional y Verdadera PARD Institucional.
+* Una solicitud se clasifica como falsa cuando luego de la constatación o verificación por el equipo de Defensoría de Familia se encuentra que en la situación reportada no existe una vulneración de derechos
+* La categoría "Sin Definir o Fallida" se aplica a los reportes que no pudieron constatarse porque los datos de ubicación no fueron entregados o son errados
+* La clasificación de Verdadera no PARD es para aquellas solicitudes que luego de la verificación se encontró que efectivamente existe una vulneración de derechos pero no revestía la gravedad para la apertura de un PARD sino un acompañamiento mediante el Sistema Nacional de Bienestar Familiar
+* Para los reportes clasificados como Verdadera PARD se verificó la vulneración de derechos y se hizo apertura de un PARD, pero varían en la medida tomada para el restablecimiento de los derechos, si se tomaba una medida Institucional en la que se ubica al menor por fuera de su hogar o no.
 
 En la carpeta [`Procesados`](Procesados) se encuentra el script para esta limpieza y creación de nuevas variables:
    
 * ``2_Limpieza y creacion de variables.ipynb`` <br> 
 
-## 2. Predicción
+## 2. Procesamiento de Lenguaje Natural (PLN)
 
-### 2.1 Testeo
+Una fuente de información muy importante para conocer la situación reportada es la que se encuentra en el campo DescripcionPeticion. Sin embargo esta es una información no estructurada, es decir, no tiene un formato, longitud o categorías definidas, sino que contiene texto escrito en español tal como lo digita la persona que recibe la solicitud. Debido a esto, requiere un procesamiento especial para poder capturar la riqueza de la información allí contenida e ingresar en un formato admitido por los modelos de *Machine Learning*, lo que se conoce como Procesamiento de Lenguaje Natural (PLN, o NLP por sus siglas en inglés).
 
-### 2.2 Entrenamiento 
+Para el presente proyecto se probaron 3 métodos para este procesamiento: Texto a secuencias, en el que se asigna un número a cada palabra de la descripción, asignándole un número menos a las palabras más frecuentes y un número mayor a las palabras menos frecuentes (para más información consultar [esta página](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer)); *TF-IDF*, en el que las palabras son convertidas a números de acuerdo a su frecuencia de aparición en una descripción particular y en el corpus total de las denuncias (para más información consultar [esta página](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#tf-idf)); y *Word Embeddings* con el modelo pre-entrenado GloVe (para más información consultar [esta página](https://nlp.stanford.edu/projects/glove/)).
 
-## 3. Evaluación
+En [`Procesados`](Procesados) se encuentra el script para el preprocesamiento del texto de la descripción:
+   
+* ``3_PipelineSpark_TFIDF_Embedding.ipynb`` <br>
+* ``4.1_ML_RedesNeuronales.ipynb`` <br> 
 
-## 4. Modelación
+## 3. Entrenamiento de modelos de *Machine Learning*
+
+Dos grupos de algoritmos o modelos de *Machine Learning* son entrenados para la tarea de clasificación de las solicitudes y reportes: Árboles de decisión con potenciación del gradiente (*Gradient Boosted Trees*) mediante la librería de XGBoost y Redes neuronales con la librería de Tensorflow Keras.
+
+Se entrenaron 5 modelos diferentes de redes neuronales, todos los cuales utilizaban como preprocesamiento de la descripción de la petición el texto a secuencias. **Incluir aquí descripción de modelos de redes neuronales**.  En la carpeta [`Procesados`](Procesados) se encuentra el script empleado para el entrenamiento de las redes neuronales:
+
+* ``4.1_ML_RedesNeuronales.ipynb`` <br>
+
+Los árboles de decisión fueron entrenados con dos grupos de variables diferentes, obtenidas a partir de la descripción de la petición preprocesada con *TD-IDF* y otro con *Word Embeddings*. Además, se emplearon dos variaciones de entrenamiento con *TD-IDF*, uno en el que contempló el desbalance existente entre las distintas categorías de la variable objetivo (unas son mucho más frecuentes que otras) y por lo que se añadieron pesos para el entrenamiento y otro en el que no. En la carpeta [`Procesados`](Procesados) se encuentran los scripts para el entrenamiento de estos distintos tipos de árboles de decisión entrenados:
+
+* ``4.2_ML_XGBoost_Embedding_Weights.ipynb`` <br>
+* ``4.3_ML_XGBoost_TFIDF_Weights.ipynb`` <br>
+* ``4.4_ML_XGBoost_TFIDF_NoWeights.ipynb`` <br>
+
+## 4. Evaluación de resultados de los modelos y selección del mejor modelo
+
+## 5. Triage/Clasificación de nuevas solicitudes
 
 
