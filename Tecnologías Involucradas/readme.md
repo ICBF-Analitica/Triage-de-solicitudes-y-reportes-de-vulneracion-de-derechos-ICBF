@@ -1,7 +1,7 @@
 ![Cabezote](Cabezote.png)
 
 ## Descripción
-
+![Definiciones](definiciones.png)
 
 ## Diagrama de Arquitectura
-![Cabezote](DiagramadeArq.png)
+![Diagrama_de_arquitectura](DiagramadeArq.png)
