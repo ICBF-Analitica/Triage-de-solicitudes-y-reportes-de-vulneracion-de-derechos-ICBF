@@ -39,7 +39,7 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 ## Tecnologías Involucradas
 
-En la carpeta correspondiente 
+En este apartado se encuentra una descripción de las tecnologias usadas por el grupo de analítica institucional del ICBF, además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente modelo.
 
 
 
@@ -58,7 +58,7 @@ En esta sección el lector podrá encontrar tres carpetas:
 
 ## Algoritmos y Entrenamiento
 
-En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos principales involucrados:
+En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage
 
 1. Gestión de los datos
 2. Procesamiento de lenguaje natural 
@@ -68,9 +68,13 @@ En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos p
 
 
 
+
+
 ## Artefacto o Visualización
 
-Una vez logrados los pasos anteriores, se mostrará las distintas vistas o tableros generados por medio de ***PowerBi*** de la clasificación de nuevas solicitudes obtenidas a partir del procesamiento del lenguaje natural inmerso en los dataframes involucrados. 
+Una vez logrados los pasos anteriores, se mostrará las distintas vistas o tableros generados por medio de ***PowerBi*** de la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado.
+
+
 
 
 
