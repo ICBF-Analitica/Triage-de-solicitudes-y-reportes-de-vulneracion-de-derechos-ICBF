@@ -37,8 +37,9 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 
 
-## Tecnologías involucradas
+## Tecnologías Involucradas
 
+En la carpeta correspondiente 
 
 
 
@@ -49,23 +50,27 @@ En esta sección el lector podrá encontrar tres carpetas:
 
 * [`Diccionario`](Datos/Diccionario)
 
-* [`Modelo Entidad Relación`](Datos/Modelo)
+
+* [`Modelo`](Datos/Modelo)
 
 * [`Muestra de Datos`](Datos/Muestra)
 
 
 ## Algoritmos y Entrenamiento
 
+En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos principales involucrados:
 
+1. Gestión de los datos
+2. Procesamiento de lenguaje natural 
+3. Entrenamiento de modelos de *Machine Learning*
+4. Evaluación de resultados de los modelos y selección del mejor modelo
+5. Triage/Clasificación de nuevas solicitudes
 
-#### II. Modelo entidad relación 
 
 
 ## Artefacto o Visualización
 
-
-
-#### Agregar vistas y link de powerbyi
+Una vez logrados los pasos anteriores, se mostrará las distintas vistas o tableros generados por medio de ***PowerBi*** de la clasificación de nuevas solicitudes obtenidas a partir del procesamiento del lenguaje natural inmerso en los dataframes involucrados. 
 
 
 
