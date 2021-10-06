@@ -1,4 +1,4 @@
-![Cabezote](Imagenes/Cabezote.png)
+![Cabezote](../Imágenes/Cabezote.png)
 
 # ARTEFACTO O VISUALIZACIÓN
 
@@ -10,20 +10,20 @@ A continuación algunas de las visualizaciones o tableros generados.
 # Reporte de amenazas o vulneración y solicitudes de restablecimiento de derechos 
 * # Características.
 
-![Cabezote](Imagenes/powerbi1.png)
+![Pwrby1](../Imágenes/powerbi1.png)
 
 
 * # Gestión Peticiones.
 
 
-![Cabezote](Imagenes/powerbi2.png)
+![Pwrby2](../Imágenes/powerbi2.png)
 * # Caracteristicas Afectados.
 
-![Cabezote](Imagenes/powerbi3.png)
+!![Pwrby3](../Imágenes/powerbi3.png)
 
 # Tablero para Defensores de Familia.
 
 * ## Priorización de Solicitudes de Restabblecimiento de Derechos y Reportes de Amenaza o Vulneración.
 
-![Cabezote](Imagenes/powerbi4.png)
+![Pwrby4](../Imágenes/powerbi4.png)
 
