@@ -45,6 +45,14 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 ## Datos 
 
+En esta sección el lector podrá encontrar tres carpetas:
+
+* [`Diccionario`](Datos/Diccionario)
+
+* [`Modelo Entidad Relación`](Datos/Modelo)
+
+* [`Muestra de Datos`](Datos/Muestra)
+
 
 ## Algoritmos y Entrenamiento
 

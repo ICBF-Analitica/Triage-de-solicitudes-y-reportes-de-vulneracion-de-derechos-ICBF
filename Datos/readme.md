@@ -1,4 +1,4 @@
-![Cabezote](Cabezote.png)
+![Cabezote](../Imágenes/Cabezote.png)
 
 # DATOS
 
@@ -23,9 +23,10 @@ Se compartira un 20% de la bases de datos usada
 * ``archivo3.xlsx`` <br>
 * ``archivo4.xlsx`` <br>
 
-## Modelo entidad relación
+## Modelo E.R
 
+A continuación se presenta el diagrama entidad_relación en el cual se podrá entender de qué forma estan involucradas las variables de las distintas bases de datos involucradas.
 
-![modelo_relacional](modelo_entidad_relacion.png)
+![modelo_relacional](../Imágenes/modelo_entidad_relacion.png)
 
-
+En caso de desear una mejor visualización, en  [`Muestra de Datos`](MuestradeDatos) podrá encontrar el archivo en pdf. 
