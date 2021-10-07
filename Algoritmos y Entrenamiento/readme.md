@@ -24,7 +24,7 @@ Esta información se cruza con las bases de Ingresos a Proceso Administrativo de
 
 En    [`Procesados`](Procesados) se encuentra el script respectivo para estos cruces:
    
-* ``1_Importacion y cruce.ipynb`` <br> 
+* ``1_Importacion y cruce`` <br> 
 
 ### 1.2. Limpieza y creación de variables
 
@@ -41,7 +41,7 @@ También se realizó la creación de la variable objetivo, esto es, la categorí
 
 En la carpeta [`Procesados`](Procesados) se encuentra el script para esta limpieza y creación de nuevas variables:
    
-* ``2_Limpieza y creacion de variables.ipynb`` <br> 
+* ``2_Limpieza y creacion de variables`` <br> 
 
 ## 2. Procesamiento de Lenguaje Natural (PLN)
 
@@ -51,8 +51,8 @@ Para el presente proyecto se probaron 3 métodos para este procesamiento: Texto 
 
 En [`Procesados`](Procesados) se encuentra el script para el preprocesamiento del texto de la descripción:
    
-* ``3_PipelineSpark_TFIDF_Embedding.ipynb`` <br>
-* ``4.1_ML_RedesNeuronales.ipynb`` <br> 
+* ``3_PipelineSpark_TFIDF_Embedding`` <br>
+* ``4.1_ML_RedesNeuronales`` <br> 
 
 ## 3. Entrenamiento de modelos de *Machine Learning*
 
@@ -68,14 +68,14 @@ Se entrenaron 4 modelos diferentes de redes neuronales, todos los cuales utiliza
 
 En la carpeta [`Procesados`](Procesados) se encuentra el script empleado para el entrenamiento de las redes neuronales:
 
-* ``4.1_ML_RedesNeuronales.ipynb``
+* ``4.1_ML_RedesNeuronales``
 
 ### 3.2. Modelos de *Gradient Boosted Trees*
 
 Se entrenaron tres tipos de *Gradient Boosted Trees*, que variaban en el método de preprocesamiento la descripción de la petición y el uso de pesos diferenciados para contemplar el desbalance existente entre las distintas categorías de la variable objetivo. 
-* En el primer tipo, que se entrena en el script ``4.2_ML_XGBoost_Embedding_Weights.ipynb``, se emplean las variables resultantes del preprocesamiento de texto con *Word Embeddings* y pesos diferenciados para cada observación, esto último para que el modelo tenga en cuenta que también es importante clasificar las solicitudes "Verdaderas PARD Institucional" a pesar de que representan solo el 6,4% de los registros y no se ocupe solamente de clasificar correctamente la categoría mayoritaria (que en este caso es "Verdadera no PARD" con 31,4% de los registros).
-* El segundo tipo de modelos, representado en el script ``4.3_ML_XGBoost_TFIDF_Weights.ipynb``, emplea igualmente los pesos diferenciados pero utiliza el método *TD-IDF* de Procesamiento de Lenguaje Natural.
-* Finalmente, el tercer tipo de modelos, entrenados en el script ``4.4_ML_XGBoost_TFIDF_NoWeights.ipynb``, emplea igualmente las variables obtenidas luego de aplicar *TF-IDF* a la descripción de la petición, pero en cambio da pesos iguales a todas las observaciones sin importar la categoría de la variable objetivo en la que se encuentren.
+* En el primer tipo, que se entrena en el script ``4.2_ML_XGBoost_Embedding_Weights``, se emplean las variables resultantes del preprocesamiento de texto con *Word Embeddings* y pesos diferenciados para cada observación, esto último para que el modelo tenga en cuenta que también es importante clasificar las solicitudes "Verdaderas PARD Institucional" a pesar de que representan solo el 6,4% de los registros y no se ocupe solamente de clasificar correctamente la categoría mayoritaria (que en este caso es "Verdadera no PARD" con 31,4% de los registros).
+* El segundo tipo de modelos, representado en el script ``4.3_ML_XGBoost_TFIDF_Weights``, emplea igualmente los pesos diferenciados pero utiliza el método *TD-IDF* de Procesamiento de Lenguaje Natural.
+* Finalmente, el tercer tipo de modelos, entrenados en el script ``4.4_ML_XGBoost_TFIDF_NoWeights``, emplea igualmente las variables obtenidas luego de aplicar *TF-IDF* a la descripción de la petición, pero en cambio da pesos iguales a todas las observaciones sin importar la categoría de la variable objetivo en la que se encuentren.
 
 En estos modelos de árboles de decisión también se hizo búsqueda de los mejores hiperparámetros (*hyperparameter tuning* o *grid search* como se conoce en inglés) mediante la librería HyperOpt, por lo que para cada uno de estos tres tipos de modelo se entrenaron 50 iteraciones con distintos combinaciones de hiperparámetros, lo que resulta en un total de 150 modelos entrenados de *Gradient Boosted Trees*
 
@@ -110,5 +110,5 @@ Para elegir el modelo de **Redes Neuronales # 1** se tomó como criterio el prom
 Para lograrlo, se implementó un *pipeline* que se ejecuta de forma automática y diaria utilizando las herramientas de AZcopy, Tareas programadas de Microsoft Windows y Azure Data Factory. El proceso completo se encuentra detallado en el archivo [`Automatizacion_NuevosDatos.pdf`](Automatizacion_NuevosDatos.pdf) pero de forma resumida se puede describir como:
 
 1. Mediante una tarea programada de Microsoft Windows se ejecuta diariamente un script en el que AZcopy sube un archivo que contiene las solicitudes y reportes de vulneración del día anterior.
-2. En Azure Data Factory se crea una actividad que, luego de haber subido el archivo en el paso anterior, ejecuta el script que se encuentra en la carpeta [`Procesados`](Procesados) y se llama ``5_Prediccion_NuevosDatos.ipynb``. ![Data Factory](../Imágenes/DataFactory.PNG) Este script lee los datos, realiza la misma limpieza y preprocesamiento que se adelantó en los scripts ``2_Limpieza y creacion de variables.ipynb`` y ``3_PipelineSpark_TFIDF_Embedding.ipynb``, y utiliza el modelo elegido de Redes Neuronales # 1 para predecir la categoría que tendría cada solicitud luego de cumplir todo el proceso de requerido de constatación, verificación y, de ser necesario, restablecimiento de derechos.
-3. El script ``5_Prediccion_NuevosDatos.ipynb`` también se encarga de guardar los registros con el Triage/Clasificación en una tabla de SQL que es consumida por la visualización en Power BI.
+2. En Azure Data Factory se crea una actividad que, luego de haber subido el archivo en el paso anterior, ejecuta el script que se encuentra en la carpeta [`Procesados`](Procesados) y se llama ``5_Prediccion_NuevosDatos``. ![Data Factory](../Imágenes/DataFactory.PNG) Este script lee los datos, realiza la misma limpieza y preprocesamiento que se adelantó en los scripts ``2_Limpieza y creacion de variables`` y ``3_PipelineSpark_TFIDF_Embedding``, y utiliza el modelo elegido de Redes Neuronales # 1 para predecir la categoría que tendría cada solicitud luego de cumplir todo el proceso de requerido de constatación, verificación y, de ser necesario, restablecimiento de derechos.
+3. El script ``5_Prediccion_NuevosDatos`` también se encarga de guardar los registros con el Triage/Clasificación en una tabla de SQL que es consumida por la visualización en Power BI.
