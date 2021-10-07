@@ -5,6 +5,15 @@
 # MODELO TRIAGE S.R.V.D
 Este proyecto realiza procesamiento de lenguaje natural (NLP) sobre los textos e interacciones en chat de denuncias de vulneración de derechos de niños, niñas y adolescentes realizadas a través de los canales del ICBF, con el propósito de diseñar artefactos de priorización de verificaciones en campo u otras herramientas similares como artefactos de reacción inmediata, chatbots, etc.
 
+## Tabla de contenidos
+
+* [Descripción](#Descripción)
+* [Objetivos](#Objetivo-general)
+* [Tecnologías involucradas](#Tecnologíasinvolucradas)
+* [Datos](#Datos)
+* [Algoritmos y Entrenamiento](#AlgoritmosyEntrenamiento)
+* [Artefacto o Visualización](#ArtefactoVis)
+
 ## Descripción
 
 Anualmente el *Instituto Colombiano de Bienestar Familiar* **(ICBF)** recibe alrededor de **120 mil** denuncias asociadas a vulneraciones de derechos de niños, niñas y adolescentes, debido a esto usa gran parte de sus recursos en la verificación y constatación en campo de las mismas. Sin embargo, algunas de estas requieren ser priorizadas para minimizar el riesgo individual y familiar. 
@@ -26,30 +35,15 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 * Diseñar un prototipo de artefacto que permita a los equipos del ICBF consultar los niveles de prioridad (pronosticados por el modelo) en la verificación y constatación en campo de las denuncias que reciben.
 
 
-## Tabla de contenidos
-
-* [Descripción](#Descripción)
-* [Objetivos](#Objetivo-general)
-* [Tecnologías involucradas](#Tecnologíasinvolucradas)
-* [Datos](#Datos)
-* [Algoritmos y Entrenamiento](#AlgoritmosyEntrenamiento)
-* [Artefacto o Visualización](#ArtefactoVis)
-
-
-
 ## Tecnologías Involucradas
 
 En este apartado se encuentra una descripción de las tecnologias usadas por el grupo de analítica institucional del ICBF, además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente modelo.
-
-
-
 
 ## Datos 
 
 En esta sección el lector podrá encontrar tres carpetas:
 
 * [`Diccionario`](Datos/Diccionario)
-
 
 * [`Modelo`](Datos/Modelo)
 
@@ -65,10 +59,6 @@ En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos p
 3. Entrenamiento de modelos de *Machine Learning*
 4. Evaluación de resultados de los modelos y selección del mejor modelo
 5. Triage/Clasificación de nuevas solicitudes
-
-
-
-
 
 ## Artefacto o Visualización
 
