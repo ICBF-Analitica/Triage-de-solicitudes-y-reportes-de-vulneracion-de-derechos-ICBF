@@ -9,10 +9,10 @@ Este proyecto busca construir un prototipo de consumo o visualización de un mod
 
 * [Descripción](#Descripción)
 * [Objetivos](#Objetivo-general)
-* [Tecnologías involucradas](Tecnologías-Involucradas/)
+* [Tecnologías involucradas](Tecnologías Involucradas/)
 * [Datos](Datos/)
-* [Algoritmos y Entrenamiento](Algoritmos-y-Entrenamiento/)
-* [Artefacto o Visualización](Artefacto-o-Visualización/)
+* [Algoritmos y Entrenamiento](Algoritmos y Entrenamiento/)
+* [Artefacto o Visualización](Artefacto o Visualización/)
 
 ## Descripción
 
@@ -37,11 +37,11 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 ## Tecnologías Involucradas
 
-En este apartado (Tecnologías-Involucradas/) se encuentra una descripción de las tecnologías usadas por el Grupo de Analítica Institucional (GAI) del ICBF. Además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente proyecto.
+En el apartado [Tecnologías involucradas](Tecnologías Involucradas/) se encuentra una descripción de las tecnologías usadas por el Grupo de Analítica Institucional (GAI) del ICBF. Además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente proyecto.
 
 ## Datos 
 
-En esta sección (Datos/) el lector encontrará información relevante sobre los datos utilizados en el entrenamiento del modelo, así como una muestra de datos a través de la cual se podrá adelantar una réplica parcial del ejercicio desarrollado por el Instituo. Los componentes encontrados allí son los siguientes: 
+En la sección [Datos](Datos/) el lector encontrará información relevante sobre los datos utilizados en el entrenamiento del modelo, así como una muestra de datos a través de la cual se podrá adelantar una réplica parcial del ejercicio desarrollado por el Instituo. Los componentes encontrados allí son los siguientes: 
 
 * [`Diccionario`](Datos/Diccionario)
 * [`Modelo`](Datos/Modelo)
@@ -50,7 +50,7 @@ En esta sección (Datos/) el lector encontrará información relevante sobre los
 
 ## Algoritmos y Entrenamiento
 
-En esta carpeta (Algoritmos-y-Entrenamiento/) se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage:
+En la carpeta [Algoritmos y Entrenamiento](Algoritmos y Entrenamiento/) se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage:
 
 1. Gestión de los datos
 2. Procesamiento de lenguaje natural 
@@ -60,4 +60,4 @@ En esta carpeta (Algoritmos-y-Entrenamiento/) se encuentra la *Metodología* y l
 
 ## Artefacto o Visualización
 
-El ICBF desarrolló un tablero o visualización que permite consumir los resultados de la clasificación predicha de las peticiones recibidas por el ICBF en ***Power Bi***. En este tablero se podrá consultar la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado. Mayor información sobre este desarrollo se puede encontrar en (Artefacto-o-Visualización/)
+El ICBF desarrolló un tablero o visualización que permite consumir los resultados de la clasificación predicha de las peticiones recibidas por el ICBF en ***Power Bi***. En este tablero se podrá consultar la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado. Mayor información sobre este desarrollo se puede encontrar en la carpeta [Artefacto o Visualización](Artefacto o Visualización/)
