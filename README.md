@@ -9,50 +9,48 @@ Este proyecto busca construir un prototipo de consumo o visualización de un mod
 
 * [Descripción](#Descripción)
 * [Objetivos](#Objetivo-general)
-* [Tecnologías involucradas](#Tecnologíasinvolucradas)
-* [Datos](#Datos)
-* [Algoritmos y Entrenamiento](#AlgoritmosyEntrenamiento)
-* [Artefacto o Visualización](#ArtefactoVis)
+* [Tecnologías involucradas](Tecnologías-Involucradas/)
+* [Datos](Datos/)
+* [Algoritmos y Entrenamiento](Algoritmos-y-Entrenamiento/)
+* [Artefacto o Visualización](Artefacto-o-Visualización/)
 
 ## Descripción
 
-Anualmente el *Instituto Colombiano de Bienestar Familiar* **(ICBF)** recibe alrededor de **120 mil** denuncias asociadas a vulneraciones de derechos de niños, niñas y adolescentes, debido a esto usa gran parte de sus recursos en la verificación y constatación en campo de las mismas. Sin embargo, algunas de estas requieren ser priorizadas para minimizar el riesgo individual y familiar. 
+El *Instituto Colombiano de Bienestar Familiar* **(ICBF)** recibe alrededor de **120 mil** reportes de amenaza y vulneración de derechos y solicitudes de restablecimiento de derechos  de niños, niñas y adolescentes, que demandan un gran esfuerzo institucional en la verificación y constatación en campo. Gran parte de ellas revisten un nivel de priorización alto debido a sus graves consecuencias sobre el bienestar individual y familiar, de manera que una herramienta que permita hacer una especie de "Triage" de las peticiones, constituye un gran aporte para el trabajo de las Defensorías de Familia del país. 
 
-En el marco de la Alianza Nacional contra la Violencia hacia Niñas, Niños y Adolescentes, el Instituto Colombiano de Bienestar Familiar (ICBF) ha trabajado en el desarrollo de modelos predictivos de vulneraciones que afectan a la niñez y adolescencia. La realización de estos modelos va en línea con el objetivo de “Crear las condiciones para anticipar y resolver las violencias y vulneraciones contra niñas, niños y adolescentes”, contenido en el Plan Nacional de Desarrollo 2018-2022. Este ha sido un trabajo conjunto realizado con el Departamento Nacional de Planeación (DNP) en el marco del Subsistema de Protección de Derechos, creado en el Plan Nacional de Desarrollo 2018-2022.
+En el marco de la Alianza Nacional contra la Violencia hacia Niñas, Niños y Adolescentes, el Instituto Colombiano de Bienestar Familiar (ICBF) ha trabajado en el desarrollo de modelos predictivos de vulneraciones que afectan a la niñez y adolescencia. La realización de estos modelos va en línea con el objetivo de “Crear las condiciones para anticipar y resolver las violencias y vulneraciones contra niñas, niños y adolescentes”, contenido en el Plan Nacional de Desarrollo 2018-2022. 
 
-Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendió este proyecto para diseñar mecanismos que permitan automatizar la clasificación de riesgo de las denuncias y comprender el contexto en el que ocurren, a través del análisis sistemático de las descripciones de las denuncias mediante las técnicas de procesamiento de lenguaje natural. Este proyecto permitirá que el ICBF pueda pilotear mecanismos más eficientes de distribución de los recursos para la verificación en campo y constatación de las reportes de vulneración de los niños, niñas y adolescentes del país.
+Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendió este proyecto para diseñar mecanismos que permitan automatizar la clasificación de riesgo de las peticiones y comprender el contexto en el que ocurren, a través del análisis sistemático de las descripciones de las denuncias mediante las técnicas de procesamiento de lenguaje natural. Este proyecto permitirá que el ICBF pueda pilotear mecanismos más eficientes de distribución de los recursos para la verificación en campo y constatación de las reportes de vulneración de los niños, niñas y adolescentes del país.
 
 ## Objetivo general
 
-* Diseñar artefactos de priorización de verificaciones en campo u otras herramientas similares como artefactos de reacción inmediata, chatbots, etc, con base en el procesamiento de lenguaje natural (NLP) sobre los textos e interacciones en chat de denuncias de vulneración de derechos de niños, niñas y adolescentes realizadas a través de los canales del ICBF.
+* Diseñar un artefacto o prototipo de clasificación automatizada de las solicitudes de restablecimiento y reportes de amenaza y vulneración de derechos de niños, niñas y adolescentes, recibidas por el ICBF a través de diferentes canales.
 
 ### Objetivos Especificos
 
-* Realizar un análisis contextual de las denuncias de acuerdo con los tipos de violencias o vulneraciones de derechos de los que son víctimas los niños, niñas y adolescentes, mediante procesamiento de lenguaje natural de las descripciones de las denuncias que recibe el ICBF.
+* Realizar un análisis contextual de las peticiones de acuerdo con los tipos de violencias o vulneraciones de derechos de los que son víctimas los niños, niñas y adolescentes, mediante procesamiento de lenguaje natural de las descripciones de las peticiones que recibe el ICBF.
 
-* Identificar variables y factores que permitan realizar predicción y etiquetado de los reportes de vulneración de derechos de acuerdo con su posible veracidad y gravedad.
+* Identificar variables y factores que permitan realizar predicción y etiquetado de las solicitudes de restablecimiento o reportes de amenaza y vulneración de derechos. 
 
-* Diseñar un prototipo de artefacto que permita a los equipos del ICBF consultar los niveles de prioridad (pronosticados por el modelo) en la verificación y constatación en campo de las denuncias que reciben.
+* Diseñar un prototipo de tablero de consumo de resultados del modelo de clasificación que permita a los equipos de Defensoría del ICBF consultar los niveles de prioridad (pronosticados por el modelo de acuerdo con su posible veracidad y gravedad) en la verificación y constatación en campo de las peticiones que reciben.
 
 
 ## Tecnologías Involucradas
 
-En este apartado se encuentra una descripción de las tecnologias usadas por el grupo de analítica institucional del ICBF, además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente modelo.
+En este apartado (Tecnologías-Involucradas/) se encuentra una descripción de las tecnologías usadas por el Grupo de Analítica Institucional (GAI) del ICBF. Además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente proyecto.
 
 ## Datos 
 
-En esta sección el lector podrá encontrar tres carpetas:
+En esta sección (Datos/) el lector encontrará información relevante sobre los datos utilizados en el entrenamiento del modelo, así como una muestra de datos a través de la cual se podrá adelantar una réplica parcial del ejercicio desarrollado por el Instituo. Los componentes encontrados allí son los siguientes: 
 
 * [`Diccionario`](Datos/Diccionario)
-
 * [`Modelo`](Datos/Modelo)
-
 * [`Muestra de Datos`](Datos/Muestra)
 
 
 ## Algoritmos y Entrenamiento
 
-En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage
+En esta carpeta (Algoritmos-y-Entrenamiento/) se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage:
 
 1. Gestión de los datos
 2. Procesamiento de lenguaje natural 
@@ -62,11 +60,4 @@ En la carpeta correspondiente se encuentra la *Metodología* y los cinco pasos p
 
 ## Artefacto o Visualización
 
-Una vez logrados los pasos anteriores, se mostrará las distintas vistas o tableros generados por medio de ***Power Bi*** de la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado.
-
-
-
-
-
-
-
+El ICBF desarrolló un tablero o visualización que permite consumir los resultados de la clasificación predicha de las peticiones recibidas por el ICBF en ***Power Bi***. En este tablero se podrá consultar la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado. Mayor información sobre este desarrollo se puede encontrar en (Artefacto-o-Visualización/)
