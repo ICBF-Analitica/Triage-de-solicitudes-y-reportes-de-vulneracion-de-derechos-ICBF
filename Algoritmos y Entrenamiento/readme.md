@@ -66,10 +66,10 @@ Se entrenaron 4 modelos diferentes de redes neuronales, todos los cuales utiliza
 
 Los 4 modelos de redes neuronales entrenados se basan en una arquitectura densa de redes neuronales recurrentes tipo LSTM bidireccionales, ampliamente usadas en el campo del aprendizaje sobre procesamiento de lenguaje natural. Los modelos integran el embedding de la descripción de las peticiones dentro de la red. Además, se diferencian por el tipo de entrenamiento origen-destino-concatenación que se usa para los 3 tipos de variables (numéricas, categóricas, texto):
 
--La red 1 es una que entrena de forma media (entre 2 y 4 capas) y separada a cada uno de los tipos de tensores (numéricas, categóricas, texto), usando además las técnicas "BatchNormalization" y "Dropout" como métodos de regularización. Finalmente, los outputs de los tres sistemas de redes con orígenes y entrenamientos iniciales diferentes se unen o concatenan para hacer la clasificación de las 5 categorías. Se optimiza con Adam.
--La red 2 a diferencia de la primera, solo entuba de forma separada los diferentes tipos de variables. A partir de allí conecta los tensores a las mismas neuronas. No se usa ningún tipo de regularización (ni dropout, ni batch, etc). Se compila con Adam.
--La red 3 hace entubamiento y entrenamiento separado para los tipos de variables pero de una forma más leve en la que lo hace la red 1 (menos capas). Luego se conectan a una red más profunda común pero no usa ninguna regularización.
--La red 4 a diferencia de las 3 anteriores, no usa pesos iniciales para el entrenamiento (class_weight).Es una red arquitectónicamente igual a la red 3 cuya única diferencia es la carencia de pesos iniciales. 
+* La red 1 es una que entrena de forma media (entre 2 y 4 capas) y separada a cada uno de los tipos de tensores (numéricas, categóricas, texto), usando además las técnicas "BatchNormalization" y "Dropout" como métodos de regularización. Finalmente, los outputs de los tres sistemas de redes con orígenes y entrenamientos iniciales diferentes se unen o concatenan para hacer la clasificación de las 5 categorías. Se optimiza con Adam.
+* La red 2 a diferencia de la primera, solo entuba de forma separada los diferentes tipos de variables. A partir de allí conecta los tensores a las mismas neuronas. No se usa ningún tipo de regularización (ni dropout, ni batch, etc). Se compila con Adam.
+* La red 3 hace entubamiento y entrenamiento separado para los tipos de variables pero de una forma más leve en la que lo hace la red 1 (menos capas). Luego se conectan a una red más profunda común pero no usa ninguna regularización.
+* La red 4 a diferencia de las 3 anteriores, no usa pesos iniciales para el entrenamiento (class_weight).Es una red arquitectónicamente igual a la red 3 cuya única diferencia es la carencia de pesos iniciales. 
 
 En la carpeta [`Procesados`](Procesados) se encuentra el script empleado para el entrenamiento de las redes neuronales:
 
