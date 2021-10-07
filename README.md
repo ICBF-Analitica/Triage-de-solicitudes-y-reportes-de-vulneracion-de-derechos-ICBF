@@ -7,8 +7,8 @@ Este proyecto busca construir un prototipo de consumo o visualización de un mod
 
 ## Tabla de contenidos
 
-* [Descripción](##Descripción)
-* [Objetivos](##Objetivo-general)
+* [Descripción](#Descripción)
+* [Objetivos](#Objetivo-general)
 * [Tecnologías involucradas](Tecnologías%20Involucradas/)
 * [Datos](Datos/)
 * [Algoritmos y Entrenamiento](Algoritmos%20y%20Entrenamiento/)
