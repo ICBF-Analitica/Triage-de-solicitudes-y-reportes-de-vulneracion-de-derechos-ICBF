@@ -7,12 +7,12 @@ Este proyecto busca construir un prototipo de consumo o visualización de un mod
 
 ## Tabla de contenidos
 
-* [Descripción](#Descripción)
-* [Objetivos](#Objetivo-general)
-* [Tecnologías involucradas](Tecnologías Involucradas/)
+* [Descripción](##Descripción)
+* [Objetivos](##Objetivo-general)
+* [Tecnologías involucradas](Tecnologías%20Involucradas/)
 * [Datos](Datos/)
-* [Algoritmos y Entrenamiento](Algoritmos y Entrenamiento/)
-* [Artefacto o Visualización](Artefacto o Visualización/)
+* [Algoritmos y Entrenamiento](Algoritmos%20y%20Entrenamiento/)
+* [Artefacto o Visualización](Artefacto%20o%20Visualización/)
 
 ## Descripción
 
@@ -37,7 +37,7 @@ Pensando en esto, el *Grupo de Analítica Institucional* (GAI) del ICBF emprendi
 
 ## Tecnologías Involucradas
 
-En el apartado [Tecnologías involucradas](Tecnologías Involucradas/) se encuentra una descripción de las tecnologías usadas por el Grupo de Analítica Institucional (GAI) del ICBF. Además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente proyecto.
+En el apartado [Tecnologías involucradas](Tecnologías%20Involucradas/) se encuentra una descripción de las tecnologías usadas por el Grupo de Analítica Institucional (GAI) del ICBF. Además se presenta el **Diagrama de arquitectura**  que describe el orden y como están interrelacionadas dichas tecnologías en el desarrollo del presente proyecto.
 
 ## Datos 
 
@@ -50,7 +50,7 @@ En la sección [Datos](Datos/) el lector encontrará información relevante sobr
 
 ## Algoritmos y Entrenamiento
 
-En la carpeta [Algoritmos y Entrenamiento](Algoritmos y Entrenamiento/) se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage:
+En la carpeta [Algoritmos y Entrenamiento](Algoritmos%20y%20Entrenamiento/) se encuentra la *Metodología* y los cinco pasos principales involucrados en el desarrollo del Módelo Triage:
 
 1. Gestión de los datos
 2. Procesamiento de lenguaje natural 
@@ -60,4 +60,4 @@ En la carpeta [Algoritmos y Entrenamiento](Algoritmos y Entrenamiento/) se encue
 
 ## Artefacto o Visualización
 
-El ICBF desarrolló un tablero o visualización que permite consumir los resultados de la clasificación predicha de las peticiones recibidas por el ICBF en ***Power Bi***. En este tablero se podrá consultar la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado. Mayor información sobre este desarrollo se puede encontrar en la carpeta [Artefacto o Visualización](Artefacto o Visualización/)
+El ICBF desarrolló un tablero o visualización que permite consumir los resultados de la clasificación predicha de las peticiones recibidas por el ICBF en ***Power Bi***. En este tablero se podrá consultar la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado. Mayor información sobre este desarrollo se puede encontrar en la carpeta [Artefacto o Visualización](Artefacto%20o%20Visualización/)
