@@ -3,7 +3,7 @@
 
 
 # MODELO TRIAGE S.R.V.D
-Este proyecto realiza procesamiento de lenguaje natural (NLP) sobre los textos e interacciones en chat de denuncias de vulneración de derechos de niños, niñas y adolescentes realizadas a través de los canales del ICBF, con el propósito de diseñar artefactos de priorización de verificaciones en campo u otras herramientas similares como artefactos de reacción inmediata, chatbots, etc.
+Este proyecto busca construir un prototipo de consumo o visualización de un modelo de clasificación de las solicitudes de restablecimiento y reportes de amenaza y vulneración de derechos (en adelante, peticiones) que recibe el ICBF a través de sus distintos canales, que permita definir posteriormente el nivel de prioridad que deberían tener las verificaciones y constataciones en campo. Se basa en el entrenamiento de modelos usando variables numéricas, categóricas y features obtenidas a través del procesamiento de lenguaje natural (NLP) de las descripciones de las peticiones. La información que se toma en cuenta para el entrenamiento de los modelos proviene de características de los departamentos, de información descriptiva de los peticionarios y de los afectados, así como de algunas caracteristicas relevantes de la completititud de la petición y de la descripción del hecho.
 
 ## Tabla de contenidos
 
