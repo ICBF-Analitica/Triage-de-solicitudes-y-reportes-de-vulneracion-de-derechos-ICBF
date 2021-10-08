@@ -65,9 +65,15 @@ El ICBF desarrolló un tablero o visualización que permite consumir los resulta
 ## Realizadores
 
 Javier Rubio;
+
 José Niño Muriel;
+
 Johanna Lozano;
+
 Campo E. Pinillos;
+
 Luz Helena Trujillo;
+
 Luigi Lizcano León;
+
 Rafael Martínez
