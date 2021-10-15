@@ -62,6 +62,8 @@ En la carpeta [`Algoritmos y Entrenamiento`](Algoritmos%20y%20Entrenamiento/) se
 
 El ICBF desarrolló un tablero o visualización que permite consumir los resultados de la clasificación predicha de las peticiones recibidas por el ICBF en ***Power Bi***. En este tablero se podrá consultar la clasificación de nuevas solicitudes que ingresan diariamente al ICBF obtenidas a partir del procesamiento del lenguaje natural y el modelo de predicción previamente entrenado. Mayor información sobre este desarrollo se puede encontrar en la carpeta [`Artefacto o Visualización`](Artefacto%20o%20Visualización/)
 
+![Tablero_PrediccionTriage](Imágenes/Tablero_PrediccionTriage.png)
+
 ## Realizadores
 
 * Javier Rubio
